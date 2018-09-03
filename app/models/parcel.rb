@@ -1,4 +1,4 @@
 class Parcel < ApplicationRecord
-  has_many :relays
-  has_many :shops
+  belongs_to :relay
+  belongs_to :shop
 end
