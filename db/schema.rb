@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_09_03_140252) do
+=======
+ActiveRecord::Schema.define(version: 2018_09_03_154003) do
+>>>>>>> master
 
   create_table "parcels", force: :cascade do |t|
     t.string "number"
@@ -42,6 +46,14 @@ ActiveRecord::Schema.define(version: 2018_09_03_140252) do
     t.integer "capacity"
     t.index ["email"], name: "index_relays_on_email", unique: true
     t.index ["reset_password_token"], name: "index_relays_on_reset_password_token", unique: true
+<<<<<<< HEAD
+=======
+  end
+
+  create_table "relays_shops", id: false, force: :cascade do |t|
+    t.integer "relay_id", null: false
+    t.integer "shop_id", null: false
+>>>>>>> master
   end
 
   create_table "shops", force: :cascade do |t|
