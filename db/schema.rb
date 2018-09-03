@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 2018_09_03_165224) do
-=======
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_09_03_140252) do
-=======
-ActiveRecord::Schema.define(version: 2018_09_03_154003) do
->>>>>>> master
->>>>>>> 042780ccf8353e82773d83f44a06ccdbd3ff994e
+
+
 
   create_table "parcels", force: :cascade do |t|
     t.string "number"
@@ -51,18 +46,12 @@ ActiveRecord::Schema.define(version: 2018_09_03_154003) do
     t.integer "shops_id"
     t.index ["email"], name: "index_relays_on_email", unique: true
     t.index ["reset_password_token"], name: "index_relays_on_reset_password_token", unique: true
-<<<<<<< HEAD
     t.index ["shops_id"], name: "index_relays_on_shops_id"
-=======
-<<<<<<< HEAD
-=======
   end
 
   create_table "relays_shops", id: false, force: :cascade do |t|
     t.integer "relay_id", null: false
     t.integer "shop_id", null: false
->>>>>>> master
->>>>>>> 042780ccf8353e82773d83f44a06ccdbd3ff994e
   end
 
   create_table "shops", force: :cascade do |t|
@@ -77,7 +66,9 @@ ActiveRecord::Schema.define(version: 2018_09_03_154003) do
     t.string "contact"
     t.string "address"
     t.string "phone"
+    t.integer "relays_id"
     t.index ["email"], name: "index_shops_on_email", unique: true
+    t.index ["relays_id"], name: "index_shops_on_relays_id"
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
   end
 
