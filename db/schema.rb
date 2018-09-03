@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_03_132816) do
-
 ActiveRecord::Schema.define(version: 2018_09_03_140252) do
-
 
   create_table "parcels", force: :cascade do |t|
     t.string "number"
@@ -46,7 +42,6 @@ ActiveRecord::Schema.define(version: 2018_09_03_140252) do
     t.integer "capacity"
     t.index ["email"], name: "index_relays_on_email", unique: true
     t.index ["reset_password_token"], name: "index_relays_on_reset_password_token", unique: true
-
   end
 
   create_table "shops", force: :cascade do |t|
@@ -57,13 +52,12 @@ ActiveRecord::Schema.define(version: 2018_09_03_140252) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "compagny_name"
+    t.string "compagny"
     t.string "contact"
     t.string "address"
     t.string "phone"
     t.index ["email"], name: "index_shops_on_email", unique: true
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
-
   end
 
 end
