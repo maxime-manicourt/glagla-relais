@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2018_09_03_132816) do
     t.string "contact"
     t.string "address"
     t.string "phone"
-    t.string "mail"
     t.string "schedule"
     t.integer "capacity"
     t.index ["email"], name: "index_relays_on_email", unique: true
