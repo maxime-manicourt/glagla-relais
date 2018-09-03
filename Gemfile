@@ -5,6 +5,9 @@ ruby '2.5.1'
 
 # User devise for user authentification
 gem 'devise', '~> 4.4', '>= 4.4.3'
+# French language for devise
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use Puma as the app server
