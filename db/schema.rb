@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_03_132816) do
+ActiveRecord::Schema.define(version: 2018_09_03_170903) do
 
   create_table "parcels", force: :cascade do |t|
     t.string "number"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_09_03_132816) do
     t.string "client_mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "payed", default: false
     t.index ["relay_id"], name: "index_parcels_on_relay_id"
     t.index ["shop_id"], name: "index_parcels_on_shop_id"
   end
