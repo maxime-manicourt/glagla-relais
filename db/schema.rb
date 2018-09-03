@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_03_132816) do
-
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_09_03_140252) do
-
+=======
+ActiveRecord::Schema.define(version: 2018_09_03_154003) do
+>>>>>>> master
 
   create_table "parcels", force: :cascade do |t|
     t.string "number"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 2018_09_03_140252) do
     t.integer "capacity"
     t.index ["email"], name: "index_relays_on_email", unique: true
     t.index ["reset_password_token"], name: "index_relays_on_reset_password_token", unique: true
+<<<<<<< HEAD
+=======
+  end
+
+  create_table "relays_shops", id: false, force: :cascade do |t|
+    t.integer "relay_id", null: false
+    t.integer "shop_id", null: false
+>>>>>>> master
   end
 
   create_table "shops", force: :cascade do |t|
@@ -56,29 +64,12 @@ ActiveRecord::Schema.define(version: 2018_09_03_140252) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "compagny_name"
+    t.string "compagny"
     t.string "contact"
     t.string "address"
     t.string "phone"
     t.index ["email"], name: "index_shops_on_email", unique: true
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
-  end
-
-  create_table "shops", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "compagny_name"
-    t.string "contact"
-    t.string "address"
-    t.string "phone"
-    t.index ["email"], name: "index_shops_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
-
   end
 
 end
