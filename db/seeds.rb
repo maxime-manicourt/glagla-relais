@@ -13,3 +13,12 @@ parcel = Parcel.create(number: "ABC1234", shop_id: Shop.order("RANDOM()").limit(
 parcel = Parcel.create(number: "BCD2345", shop_id: Shop.order("RANDOM()").limit(3), relay_id: Relay.order("RANDOM()").limit(3), collected: false, delivered: false, client_name: "Martin", client_mail: "martin@gmail.com")
 parcel = Parcel.create(number: "CDE3456", shop_id: Shop.order("RANDOM()").limit(3), relay_id: Relay.order("RANDOM()").limit(3), collected: false, delivered: false, client_name: "Plantevin", client_mail: "plantevin@gmail.com")
 =end
+=======
+Shop.destroy_all
+
+10.times do |index|
+  Shop.create(
+    email: 'random-compagny' + index.to_s + '@compagny.com',
+    password: 'qwerty'
+  )
+end
