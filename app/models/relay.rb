@@ -5,5 +5,5 @@ class Relay < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_and_belongs_to_many :shops
-  has_and_belongs_to_many :parcels
+  has_many :parcels
 end

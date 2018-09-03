@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_03_132816) do
-
-ActiveRecord::Schema.define(version: 2018_09_03_140252) do
-
+ActiveRecord::Schema.define(version: 2018_09_03_165224) do
 
   create_table "parcels", force: :cascade do |t|
     t.string "number"
@@ -44,9 +40,10 @@ ActiveRecord::Schema.define(version: 2018_09_03_140252) do
     t.string "phone"
     t.string "schedule"
     t.integer "capacity"
+    t.integer "shops_id"
     t.index ["email"], name: "index_relays_on_email", unique: true
     t.index ["reset_password_token"], name: "index_relays_on_reset_password_token", unique: true
-
+    t.index ["shops_id"], name: "index_relays_on_shops_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -63,7 +60,6 @@ ActiveRecord::Schema.define(version: 2018_09_03_140252) do
     t.string "phone"
     t.index ["email"], name: "index_shops_on_email", unique: true
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
-
   end
 
 end
