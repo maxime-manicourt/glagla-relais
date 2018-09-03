@@ -4,6 +4,6 @@ class Relay < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :shops
+  has_and_belongs_to_many :shops
   has_many :parcels
 end
