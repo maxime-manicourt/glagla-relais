@@ -6,31 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-=begin
-Parcel.destroy_all
-
-parcel = Parcel.create(number: "ABC1234", shop_id: Shop.all.sample.id, relay_id: Relay.order("RANDOM()").limit(3), collected: false, delivered: false, client_name: "Dupont", client_mail: "dupont@gmail.com")
-parcel = Parcel.create(number: "BCD2345", shop_id: Shop.all.sample.id, relay_id: Relay.order("RANDOM()").limit(3), collected: false, delivered: false, client_name: "Martin", client_mail: "martin@gmail.com")
-parcel = Parcel.create(number: "CDE3456", shop_id: Shop.all.sample.id, relay_id: Relay.order("RANDOM()").limit(3), collected: false, delivered: false, client_name: "Plantevin", client_mail: "plantevin@gmail.com")
-
-relay = Relay.create(company_name: "" contact: "Jean Michel", address: "4 Rue du Général de Castelnau, 75015 Paris")
-
-t.string "company_name"
-t.string "contact"
-t.string "address"
-t.string "phone"
-t.string "schedule"
-t.integer "capacity"
-t.index ["email"], name: "index_relays_on_email", unique: true
-
-
-=end
-=======
 Shop.destroy_all
+Relay.destroy_all
+Parcel.destroy_all
 
 10.times do |index|
   Shop.create(
-    email: 'random-compagny' + index.to_s + '@compagny.com',
+    email: 'random-shop' + index.to_s + '@shop.com',
     password: 'qwerty'
+  )
+end
+
+10.times do |index|
+  Relay.create(
+    email: 'random-relay' + index.to_s + '@relay.com',
+    password: 'qwerty'
+  )
+end
+
+Shop.all.each do |shop|
+  shop.relays.push(Relay.all.sample(2))
+  shop.save
+end
+
+20.times do |index|
+  Parcel.create(
+    number: SecureRandom.hex(8),
+    shop_id: Shop.all.sample.id,
+    relay_id: Relay.all.sample.id,
+    client_mail: Faker::Internet.email,
+    client_name: Faker::HarryPotter.character
   )
 end
