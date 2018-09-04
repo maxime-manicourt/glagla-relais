@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_09_03_170903) do
     t.string "client_mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "payed", default: false
+    t.boolean "paid", default: false
     t.index ["relay_id"], name: "index_parcels_on_relay_id"
     t.index ["shop_id"], name: "index_parcels_on_shop_id"
   end
@@ -41,8 +41,31 @@ ActiveRecord::Schema.define(version: 2018_09_03_170903) do
     t.string "phone"
     t.string "schedule"
     t.integer "capacity"
+    t.integer "shops_id"
     t.index ["email"], name: "index_relays_on_email", unique: true
     t.index ["reset_password_token"], name: "index_relays_on_reset_password_token", unique: true
+    t.index ["shops_id"], name: "index_relays_on_shops_id"
+  end
+
+  create_table "relays_shops", id: false, force: :cascade do |t|
+    t.integer "relay_id", null: false
+    t.integer "shop_id", null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "compagny_name"
+    t.string "contact"
+    t.string "address"
+    t.string "phone"
+    t.index ["email"], name: "index_shops_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
   end
 
 end
